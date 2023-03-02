@@ -1,0 +1,207 @@
+/*-- rainbow darkGrey = background: #474949;
+         rainbow lightGrey = color: #969896;
+         rainbow Lavender = color: #cc99cc;
+         rainbow Orange = color: #f99157;
+         rainbow Teal = color: #8abeb7;
+         rainbow Green = color: #b5bd68;
+         rainbow Yellow = color: #ffcc66;
+         rainbow Red = color: #dc322f; --*/
+
+/*-- wrapper --*/
+body {
+    background: white; /* background outside wrapper */
+}
+
+.wrapper {
+    max-width: 960px;
+    background: white; /* background for content */
+    margin: 0 auto;
+}
+
+/*-- typography --*/
+body {
+    color: #404040;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.2em;
+    font-weight: 300;
+	line-height: normal;
+}
+
+h1 {
+    font-weight: 700;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #474949; 
+    text-transform: uppercase;
+    text-align: center; /*-- centers the page title --*/
+    margin: 30px;
+}
+
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1ea8b4; 
+    margin: 40px 20px 0 20px; /*-- first value creates space between section blocks;                             
+    third value creates proximity between h2 and corresponding paragraphs beneath; --*/
+}
+
+h3, h4 {
+    color: #474949;
+    /*-- color: #373f47; --*/
+    margin: 20px 0 0 20px;
+}
+
+p, label { /* -- indents label text the same amount as paragraph text --*/
+    margin: 5px 30px 10px 20px; /*-- first: creates proximity between h2 and corresponding paragraphs;
+                                     second: sets more margin on right side, for design appeal --*/
+}
+
+/*-- styling of the navigation unordered list --*/
+.topnav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+    background: #474949; /*-- rainbow --*/
+}
+
+/*-- general styling for the top navigation list item links --*/
+.topnav li a {
+    text-decoration: none;
+    font-weight: 700;
+	color: white;
+	padding: .6em .8em; /* space above (1st#) and between (2nd#) nav items */
+}
+
+/*-- changes the color of the individual list item links on hover --*/
+.topnav li a:hover {
+	background: #404040;
+}
+
+/*-- changes the color of the currently active page;
+     class="current" must be within the link of the current page --*/
+.topnav .current {
+  background: #1ea8b4;
+}
+
+/*-- hides all links, except for the first one ("Home") on small screens --*/
+.topnav li a {
+	display: none; 
+}
+.topnav li a.navhome {
+    display: block;
+}
+
+/*-- shows the  hamburger link that opens and closes the topnav (.icon) on small screens --*/
+.topnav li a.icon {
+    background: #474949;
+    display: block;
+    /*-- positions the hamburger in the top right corner instead of below "Home" --*/
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+    
+/*-- Note: the "responsive" class is added to the topnav with JavaScript when the user clicks on the icon;
+displays the links vertically instead of horizontally) --*/
+.topnav.responsive {
+    position: relative;
+}
+
+.topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+/*-- nav: responsive layout --*/
+@media screen and (min-width: 600px) {
+ 
+    .topnav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .topnav li {
+        flex: 1 0 auto;
+        text-align: center;
+    } 
+    
+    .topnav li a {
+        display: block;
+    }
+    
+    
+    /*-- hides the list item and not just the hamburger link on screens wider than 540px --*/
+    .topnav .invisibleBars {
+        display: none;
+    }
+}
+
+/*-- footer --*/
+footer {
+    max-width: 960px;
+    height: 100px;
+    background: white;   
+}
+
+/*-- footer: back and next buttons --*/
+.nextButton, .backButton {
+    background: #1ea8b4;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    border: none; 
+    border-radius: 5px; 
+    margin: 30px 10px 30px 10px; /*-- 10px off the right edge for mobile esthetics --*/
+    padding: 5px 10px;
+}
+
+.nextButton {
+    float: right;
+}
+
+.messageButton {
+    color: white;
+    background: #cc99cc;
+    font-size: .8em;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+    margin: 0;
+    padding: 5px;
+}
+
+/*-- styling of the Ice Cream Demo and Chord Calculator Demo --*/
+figure {
+   margin: 0;
+}
+
+.chooseFlavor {
+  color: #cc99cc;
+  font-weight: 600;
+}
+
+.customSelect {
+    background: #474949;
+    display: inline-block;
+    margin: 20px 20px 0 20px;
+}
+
+#chooseFlavor, #chooseScale, #chooseChord {
+    margin: 10px; /*-- creates the thick black border around selection boxes --*/
+}
+
+.showMessage, .showChord {
+    color: #1ea8b4;
+    font-weight: 600;
+    margin: 20px;
+}
+
+/*-- codepen link --*/
+.codepen {
+    color: #cc99cc;
+    text-decoration: none;
+}
+

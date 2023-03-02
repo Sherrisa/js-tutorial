@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>JavaScript Variables</title>
+   <meta name="description" content="Tutorial detailing how to use JavaScript variables and arrays.">
+   <meta name="author" content="Sherrisa Classon">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/8d6b84dc6a.js" crossorigin="anonymous"></script>
+   <script src="js/modernizr.custom.05819.js"></script>
+   <!-- These 2 lines of code get the highlight js code library from a cloud content distribution network (CDN) -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw==" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/xml.min.js" integrity="sha512-miMP61kxXLVNP1x+hD6zWYGQrOVEWPSk6cnToSpudGxgeI0Vg8y0kGzVZ6znnWgTRCpa6dPrd0+Zt7UTsK/hpg==" crossorigin="anonymous"></script>
+   <!-- In order to add html code examples this line needs to be in the head tag -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/javascript.min.js" integrity="sha512-u9dJCEIlcxWLWzlBIBDAO98TI5r1yrxGwRY2vbqFdecd58lamsEgBt1p4sDNBncNUMDV5//WdywRHdhCLx0FJQ==" crossorigin="anonymous"></script>
+   <!-- This line is needed for the default CSS style -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/rainbow.min.css" integrity="sha512-jrIqC8viP5m6wSz3kjxL+rDmBg0qdIgbPa8ziq33fIXnvV0eUqqUfW0R9S52i3S+G56V8eKMiTzqwNah8AujiA==" crossorigin="anonymous" />
+   <!-- End of hightlight JS code library CDN declarations-->
+</head>
+<body class="variables">
+   <div class="wrapper">
+      <nav class="topnav" id="myTopnav">
+         <ul>
+            <li><a class="navhome" href="index.html">Home</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a class="current" href="variables.html">Variables</a></li>
+            <li><a href="statements.html">Statements</a></li>
+            <li><a href="demo.html">Demo</a></li>
+            <!-- This link with class="icon" is used to open and close the topnav on small screens -->
+            <li class="invisibleBars"><a href="javascript:void(0);" class="icon" onclick="toggleBars()"><i class="fas fa-bars"></i></a></li>
+         </ul>
+      </nav> 
+      <header>
+         <h1>Variables</h1>
+      </header>
+      <main>
+         <section>
+            <h2>Why Variables?</h2>
+            <p>In computer programming, we work with lots of data. To best handle and organize all of this data, we store it in containers called variables. Like any good organization system, these container are all labeled. These labels are called identifiers. When creating these labels, or identifiers, we want to choose words that will make sense to us later when working with the code. For the drop down menu that selects a scale, I have chosen the identifier <em>chooseScale</em>, and for the drop down menu that selects the chord, I have chosen the identifier <em>chooseChord</em>.</p>
+         <section>
+            <h2>Camel Case</h2>
+            <p>Notice how I constructed the identifiers in the previous section. Each one is constructed from two words that I have put together with no spaces. the first word is lowercase and the second word is capitalized. You might have noticed that I've been naming our functions with a similar syntax. When there are three words, as in <em>createEventListener</em>, the first word is lowercase and each word after the first is capitalized. This method of naming is called "camel case".</p>
+         </section>
+            <h2>Variable Syntax</h2>
+            <p>To create a variable you need the keyword <em>var</em>, the identifier, an assignment operator, and the value. An assignment operater is a fancy term for the equals sign. I think it's important to mention that in JavaScript, the equals sign doesn't truly mean equals in the same way that the equal sign in <em>2 + 5 = 7</em> means equals. We use <em>===</em> for that. We'll discuss that more in another tutorial. For now, just know there is a difference.</p>
+            <p>Values come in all shapes and sizes. Sometimes a value is as simple as the number 5 in the following code.</p>
+<pre>
+<code>
+  var myNumber = 5;
+  
+</code>
+</pre>
+            <p>Other times a value is word or group of words, called <em>strings</em>. In the next code snippet, notice the syntax for declaring a string. The string is enclosed in " ", unlike the number value in the previous example.</p>
+<pre>
+<code>
+  var myMessage = "Hooray!";
+  
+</code>
+</pre>
+          </section>
+          <section>
+            <h2>HTML Values</h2>
+            <p>In this project, many of our variable values are pulled from HTML elements. We tell the browser to look inside an HTML document and retrieve data from within the elements to use as values. Here's an example from the <em>showChord</em> function.</p>
+<pre>
+<code>
+  var scaleChoice = document.getElementById("chooseScale").value;
+  
+</code>
+</pre>      
+            <p>This code creates the variable <em>scaleChoice</em> and assigns it to be the contents of the HTML element with the id of <em>chooseScale</em>. How does this work? Through the <em>document</em> object, we use the method <em>getElementById</em> to target the id <em>chooseScale</em> in parentheses. The element with the id <em>chooseScale</em> is a selection box with 12 options. The property <em>value</em> asks the browser to look and see which of the 12 scales the user has selected and tell us its value.</p>
+         </section>
+         <section>
+            <h2>Creating Arrays</h2>
+            <p>Sometimes we need to put several things in one variable container. To do this we enclose the values in brackets, as in the following code.</p>
+<pre>
+<code>
+  var myMessages = ["Hooray!", "Great job!", "You did it!"];
+  
+</code>
+</pre>
+            <p>The only difference is that when we are accessing these values, we use what is called an <em>index</em>. The index is a number, beginning with zero, that tracks the values in an array. Take a look at this line of code.</p>
+<pre>
+<code>
+  onclick="window.alert(myMessages[2])";
+  
+</code>
+</pre>
+            <script>
+                var myMessages = ["Hooray!", "Great job!", "You did it!"];
+            </script>
+             
+             <p>This code tells the browser to display the third string in my array, the words "You did it!" Take note that the first index number is always zero. This can be confusing when you first begin to code and is a common cause of errors. Click this <button class="messageButton" onclick="window.alert(myMessages[2])">button</button> to see the code in action.</p> 
+             <p>I think we know enough about variables now to get to work on our Chord Calculator project. Let's go back to our <em>demo.js</em> file and add some global variables.</p>
+         </section>
+         <section>
+            <h2>Global Variables</h2>
+            <p>It's time to apply all we've learned abour variables to our chord calculator project. We'll start by declaring our global variables for the twelve musical scales plus an extra scale I will call <em>scaleDegrees</em>. These variables will hold an array of values, 22 values to be specific. Our global variables will go at the top of our <em>demo.js</em> file.</p> 
+               <p>It's important to note that unless you're a musician, you probably won't understand how I came up with the values in these arrays. Because of the complex nature of the chords in the chord calculator, these arrays are a bit complex as well. Also note that not all of the values will be used in the chord calculator function, but are included for later use in other functions. Here is the code for just three of these global variables:</p>
+<pre>
+<code>
+  // global variables
+  var scaleG = ["G", "Ab", "A", "Bb", "B", "C", "Db", "D", "D#", "E", 
+  "F", "F#", "G", "Ab", "A", "A#", "B", "C", "Db", "D", "D#", "E"]; 
+  var scaleC = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "G#", "A", 
+  "Bb", "B", "C", "Db", "D", "D#", "E", "F", "Gb", "G", "G#", "A"];
+  var scaleF = ["F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "C#", "D", 
+  "Eb", "E", "F", "Gb", "G", "G#", "A", "Bb", "B", "C", "C#", "D"];
+  
+</code>
+</pre>
+             <p>You get the idea.</p> 
+             <p>Now that we've set up our event listeners and declared our global variables, we're ready to write the switch statements that go inside our <em>showChord</em> function. Click the "next" button to learn about switch statements.</p>         
+         </section>
+      </main>
+      <footer>
+         <button class="backButton" onclick="document.location='functions.html'"><i class="fas fa-angle-left"></i> Back</button>
+         <button class="nextButton" onclick="document.location='statements.html'">Next <i class="fas fa-angle-right"></i></button>
+      </footer>
+    </div>
+   <script>hljs.highlightAll();</script>
+   <script src="js/js_tutorial.js"></script>    
+</body>
+</html>

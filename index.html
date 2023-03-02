@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>JavaScript Tutorial</title>
+   <meta name="description" content="A Tutorial Introducing Mouseover Animation">
+   <meta name="author" content="Sherrisa Classon">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/8d6b84dc6a.js" crossorigin="anonymous"></script>
+   <script src="js/modernizr.custom.05819.js"></script>
+   <!-- These 2 lines of code get the highlight js code library from a cloud content distribution network (CDN) -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw==" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/xml.min.js" integrity="sha512-miMP61kxXLVNP1x+hD6zWYGQrOVEWPSk6cnToSpudGxgeI0Vg8y0kGzVZ6znnWgTRCpa6dPrd0+Zt7UTsK/hpg==" crossorigin="anonymous"></script>
+   <!-- In order to add html code examples this line needs to be in the head tag -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/javascript.min.js" integrity="sha512-u9dJCEIlcxWLWzlBIBDAO98TI5r1yrxGwRY2vbqFdecd58lamsEgBt1p4sDNBncNUMDV5//WdywRHdhCLx0FJQ==" crossorigin="anonymous"></script>
+   <!-- This line is needed for the default CSS style -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/rainbow.min.css" integrity="sha512-jrIqC8viP5m6wSz3kjxL+rDmBg0qdIgbPa8ziq33fIXnvV0eUqqUfW0R9S52i3S+G56V8eKMiTzqwNah8AujiA==" crossorigin="anonymous" />
+   <!-- End of hightlight JS code library CDN declarations-->  
+</head>
+<body>          
+   <div class="wrapper">
+      <nav class="topnav" id="myTopnav">
+         <ul>
+            <li><a class="current navhome" href="index.html">Home</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="variables.html">Variables</a></li>
+            <li><a href="statements.html">Statements</a></li>
+            <li><a href="demo.html">Demo</a></li>
+            <!-- This link with class="icon" is used to open and close the topnav on small screens -->
+            <li class="invisibleBars"><a href="javascript:void(0);" class="icon" onclick="toggleBars()"><i class="fas fa-bars"></i></a></li>
+         </ul>
+      </nav>
+      <header>
+         <h1>JS Tutorial</h1>
+      </header>
+      <main>
+         <section>
+            <h2>Welcome!</h2>
+            <p>Welcome to my JavaScript tutorial on switch statements. In this tutorial we will be building an application to calculate and display the notes of a musical chord using switch statements. The user can select any scale and chord quality combination and this JavaScript program will calculate the notes that make up that chord. Let's get started by first getting familiar with the JavaScript language.</p>
+         </section>
+         <section>
+            <h2>What Is JavaScript?</h2>
+            <p>JavaScript is a programming language used for building applications on the web. It is the only programming language you can use to write front end code. What is front end code? I'm glad you asked. Simply put, front end code is the code that controls what is presented to the user, while back end code is the code on the server side that supports it.</p>
+         </section>
+         <section>
+            <h2>Why Learn JavaScript?</h2>
+            <p>JavaScript allows you to incorporate user interaction on your web pages. It transforms your web site from a collection of static pages to an interactive experience. With HTML and CSS, your web pages are static, like an ebook, but with JavaScript those same pages have similar functionality to software applications. They become dynamic.</p>
+         </section>
+         <section>
+            <h2>How It Works</h2>
+            <p>In short, something triggers an event, such as a user clicking a button, and then the browser responds to that event according to the instructions in the JavaScript code. There are many ways to trigger an events. Hovering over an image can trigger an event. A timer on an internal clock going off can trigger an event. As the developer, you write the instructions necessary to create the interactive experiences you want to happen on a web page, and then attach those instructions to events.</p>
+         </section>
+         <section>
+            <h2>Starting at the End</h2>
+            <p>In this tutorial, I am going to start at the end. Before we write the instructions for the interactions we want the browser to execute on the page, we are first going to learn how to write the code that tells the browser to "listen" for and "call" your instruction. If you're ready to get started on our JavaScript journey, click the "Next" button in the lower right corner of your screen. See you on the next page!</p>    
+         </section>
+      </main>
+      <footer>
+         <button class="nextButton" onclick="document.location='functions.html'">Next <i class="fas fa-angle-right"></i></button>
+      </footer>
+   </div>
+   <script>hljs.highlightAll();</script>
+   <script src="js/js_tutorial.js"></script>
+</body>
+</html>

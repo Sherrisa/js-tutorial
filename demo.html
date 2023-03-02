@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Demo</title>
+   <meta name="description" content="Demo of the chord calculator application created in this tutorial.">
+   <meta name="author" content="Sherrisa Classon">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/8d6b84dc6a.js" crossorigin="anonymous"></script>
+   <script src="js/modernizr.custom.05819.js"></script>
+   <!-- These 2 lines of code get the highlight js code library from a cloud content distribution network (CDN) -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw==" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/xml.min.js" integrity="sha512-miMP61kxXLVNP1x+hD6zWYGQrOVEWPSk6cnToSpudGxgeI0Vg8y0kGzVZ6znnWgTRCpa6dPrd0+Zt7UTsK/hpg==" crossorigin="anonymous"></script>
+   <!-- In order to add html code examples this line needs to be in the head tag -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/javascript.min.js" integrity="sha512-u9dJCEIlcxWLWzlBIBDAO98TI5r1yrxGwRY2vbqFdecd58lamsEgBt1p4sDNBncNUMDV5//WdywRHdhCLx0FJQ==" crossorigin="anonymous"></script>
+   <!-- This line is needed for the default CSS style -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/rainbow.min.css" integrity="sha512-jrIqC8viP5m6wSz3kjxL+rDmBg0qdIgbPa8ziq33fIXnvV0eUqqUfW0R9S52i3S+G56V8eKMiTzqwNah8AujiA==" crossorigin="anonymous" />
+   <!-- End of hightlight JS code library CDN declarations-->
+</head>
+<body>
+   <div class="wrapper">
+      <nav class="topnav" id="myTopnav">
+         <ul>
+            <li><a class="navhome" href="index.html">Home</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="variables.html">Variables</a></li>
+            <li><a href="statements.html">Statements</a></li>
+            <li><a class="current" href="demo.html">Demo</a></li>
+            <!-- This link with class="icon" is used to open and close the topnav on small screens -->
+            <li class="invisibleBars"><a href="javascript:void(0);" class="icon" onclick="toggleBars()"><i class="fas fa-bars"></i></a></li>
+         </ul>
+      </nav> 
+      <header>
+         <h1>Demo</h1>
+      </header>
+      <main>
+         <section class="chordCalculator">
+            <h2>Chord Calculator</h2>
+            <br>
+            <label for="chooseScale" class="chooseScale">Select a scale</label>
+            <br>
+            <div class="customSelect">
+               <select name="chooseScale" id="chooseScale">
+                  <option value="scaleFsharp">F#</option>
+                  <option value="scaleB">B</option>
+                  <option value="scaleE">E</option>
+                  <option value="scaleA">A</option>
+                  <option value="scaleD">D</option>
+                  <option value="scaleG">G</option>
+                  <option value="scaleC">C</option>
+                  <option value="scaleF">F</option>
+                  <option value="scaleBb">Bb</option>
+                  <option value="scaleEb">Eb</option>
+                  <option value="scaleAb">Ab</option>
+                  <option value="scaleDb">Db</option>
+               </select>
+            </div>
+            <br><br>
+            <label for="chooseChord" class="chooseChord">Select a chord</label>
+            <br>
+            <div class="customSelect">
+               <select name="chooseChord" id="chooseChord">
+                  <option value="major">major</option>
+                  <option value="m">minor</option>
+                  <option value="dim">diminished</option>
+                  <option value="+">augmented</option>
+                  <option value="2">add 2</option>
+                  <option value="6">sixth</option>
+                  <option value="M7">major seventh</option>
+                  <option value="7">dominant seventh</option>
+                  <option value="m7">minor seventh</option>
+                  <option value="m7b5">half diminished seventh</option>
+                  <option value="dim7">diminished seventh</option>
+                  <option value="7+">augmented seventh</option>
+                  <option value="M9">major ninth</option>
+                  <option value="9">dominant ninth</option>
+                  <option value="7b9">dominant b9</option>
+                  <option value="6/9">sixth/ninth</option>
+                  <option value="7#9">dominant #9</option>
+                  <option value="sus4">suspended 4th</option>
+                  <option value="sus2">suspended 2nd</option>
+                  <option value="7sus4">suspended 4th seventh</option>
+                  <option value="11">eleventh</option>
+                  <option value="13">thirteenth</option>
+               </select>
+            </div>
+            <br>
+            <div class="showChord"><span id="showChord"></span></div>
+         </section>
+      </main>
+      <footer>
+         <button class="backButton" onclick="document.location='statements.html'"><i class="fas fa-angle-left"></i> Back</button>
+      </footer>
+   </div>
+   <script>hljs.highlightAll();</script>
+   <script src="js/js_tutorial.js"></script> 
+   <script src="js/demo.js"></script>
+</body>
+</html>

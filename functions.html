@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>JavaScript Functions</title>
+   <meta name="description" content="Tutorial detailing how to use JavaScript event listeners to 'listen' for user input meant to trigger execution of a function.">
+   <meta name="author" content="Sherrisa Classon">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/8d6b84dc6a.js" crossorigin="anonymous"></script>
+   <script src="js/modernizr.custom.05819.js"></script>
+   <!-- These 2 lines of code get the highlight js code library from a cloud content distribution network (CDN) -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw==" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/xml.min.js" integrity="sha512-miMP61kxXLVNP1x+hD6zWYGQrOVEWPSk6cnToSpudGxgeI0Vg8y0kGzVZ6znnWgTRCpa6dPrd0+Zt7UTsK/hpg==" crossorigin="anonymous"></script>
+   <!-- In order to add html code examples this line needs to be in the head tag -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/javascript.min.js" integrity="sha512-u9dJCEIlcxWLWzlBIBDAO98TI5r1yrxGwRY2vbqFdecd58lamsEgBt1p4sDNBncNUMDV5//WdywRHdhCLx0FJQ==" crossorigin="anonymous"></script>
+   <!-- This line is needed for the default CSS style -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/rainbow.min.css" integrity="sha512-jrIqC8viP5m6wSz3kjxL+rDmBg0qdIgbPa8ziq33fIXnvV0eUqqUfW0R9S52i3S+G56V8eKMiTzqwNah8AujiA==" crossorigin="anonymous" />
+   <!-- End of hightlight JS code library CDN declarations-->
+</head>
+<body>
+   <div class="wrapper">
+      <nav class="topnav" id="myTopnav">
+         <ul>
+            <li><a class="navhome" href="index.html">Home</a></li>
+            <li><a class="current" href="functions.html">Functions</a></li>
+            <li><a href="variables.html">Variables</a></li>
+            <li><a href="statements.html">Statements</a></li>
+            <li><a href="demo.html">Demo</a></li>
+            <!-- This link with class="icon" is used to open and close the topnav on small screens -->
+            <li class="invisibleBars"><a href="javascript:void(0);" class="icon" onclick="toggleBars()"><i class="fas fa-bars"></i></a></li>
+         </ul>
+      </nav>   
+      <header>
+         <h1>Functions</h1>
+      </header>
+      <main>
+         <section>
+            <h2>Functions Defined</h2>
+            <p>A group of instructions in JavaScript code is called a function. According to the W3schools, "A JavaScript function is a block of code designed to perform a particular task." In this tutorial, our task is to calculate and display the notes of a musical chord based on the users scale and chord selections. I am going to show you how to write a function that will accomplish this task. We are going to name our function <em>showChord</em>.</p>
+         </section>
+         <section>
+            <h2>Function Syntax</h2>
+            <p>First let's talk about syntax. All languages have proper grammar and spelling, even computer programming languages. This proper grammar and spelling is called syntax. There's a specific way that the components of our code must be presented to the web browser for that code to be understood. If we don't use the proper syntax, the code won't run. The proper syntax for our function "showChord" looks like this:</p>           
+<pre>
+<code>
+  function showChord() {
+     <em>statements</em>;             
+  }
+   
+</code>
+</pre>
+            <p>We will put our step by step instructions where the word <em>statements</em> appears in the above code. Later, we will talk more specifically about these statements, but first we have two more things to do.</p>
+         </section>
+         <section>
+            <h2>Event Listeners</h2>
+            <p>As discussed on the previous page, every function is connected to an event. Often these are user interactions such as making a choice from a selection list or clicking a button. If you are viewing this tutorial on a mobile device, you likely clicked on the hamburger menu in the upper right hand corner to see the list of pages in this tutorial, or maybe you chose to navigate through this tutorial using the <em>next</em> and <em>back</em> buttons at the bottom of the pages. These are examples of events.</p> 
+            <p>Sometimes there is only a single statement, or instruction,  connected to an event, as with the code below that uses the <em>onclick</em> attribute of the button element to move the user to the next page when the "next" button is clicked.</p>
+<pre>
+<code>
+  onclick="document.location='statements.html'"
+
+</code>
+</pre>
+            <p>We can put the above attribute <em>onclick</em> and value <em>document.location='statements.html'</em> directly into the html document within the <em>button</em> tag for the "next" button.</p>
+             <p>Other times, there are many lines of instructions and it is easier to group them together into a function in a separate JavaScript file. In these instances, we must have a way to "listen" for and "call" the function from the JavaScript file when the event happens. We do this with what are called <em>Event Listeners.</em></p>
+         </section>
+         <section>
+            <h2>Event Listeners</h2>
+            <p>We create event listeners with a function. It is essentially a function whose only task is to call another function. Here is the function to create the event listeners that call the <em>showChord</em> function.</p>
+<pre>
+<code>
+  // creates the event listeners that call the showChord function
+  function createEventListeners() {
+     // creates an event listener for the drop down menu to select a scale
+     var chooseScale = document.getElementById("chooseScale");
+     chooseScale.addEventListener ("change", showChord, false);
+     
+     // creates an event listener for the drop down menu to select a chord
+     var chooseChord = document.getElementById("chooseChord");
+     chooseChord.addEventListener ("change", showChord, false); 
+  }
+
+</code>
+</pre>
+            <p>On the next two pages I will explain how we create variables and write statements, but before doing that I want to show you two more snippet of code that we need to make our functions work. The first is a statement that tells the browser to call the createEventListeners() function when the web page is loaded. This code goes at the very bottom of our JavaScript document that I've named <em>demo.js</em> and put in a folder names <em>js</em>.</p> 
+<pre>
+<code>
+  // calls the createEventListeners() function when the page is loaded
+  window.addEventListener("load", createEventListener, false);
+  
+</code>
+</pre>
+            <p>Next we must add a line of code directly into our HTML document to tell the browser to load the external JavaScript file. This line of code goes just before the closing <em>body</em> tag in the html document.</p>
+<pre>
+<code>
+  &lt;script src="js/demo.js"&gt;&lt;/script&gt;
+ 
+</code>
+</pre>
+            <p>Okay, now that we've set up our Event Listeners and linked to our JavaScript file, let's take a few minutes to talk about variables. Click the "Next" button to join me on the next page.</p>
+         </section>
+      </main>
+      <footer>
+         <button class="backButton" onclick="document.location='index.html'"><i class="fas fa-angle-left"></i> Back</button>
+         <button class="nextButton" onclick="document.location='variables.html'">Next <i class="fas fa-angle-right"></i></button>
+      </footer>
+   </div>
+   <script>hljs.highlightAll();</script>
+   <script src="js/js_tutorial.js"></script>    
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>JavaScript Statements</title>
+   <meta name="description" content="Tutorial detailing JavaScript loop statements and conditional statements.">
+   <meta name="author" content="Sherrisa Classon">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/8d6b84dc6a.js" crossorigin="anonymous"></script>
+   <script src="js/modernizr.custom.05819.js"></script>
+   <!-- These 2 lines of code get the highlight js code library from a cloud content distribution network (CDN) -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw==" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/xml.min.js" integrity="sha512-miMP61kxXLVNP1x+hD6zWYGQrOVEWPSk6cnToSpudGxgeI0Vg8y0kGzVZ6znnWgTRCpa6dPrd0+Zt7UTsK/hpg==" crossorigin="anonymous"></script>
+   <!-- In order to add html code examples this line needs to be in the head tag -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/javascript.min.js" integrity="sha512-u9dJCEIlcxWLWzlBIBDAO98TI5r1yrxGwRY2vbqFdecd58lamsEgBt1p4sDNBncNUMDV5//WdywRHdhCLx0FJQ==" crossorigin="anonymous"></script>
+   <!-- This line is needed for the default CSS style -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/rainbow.min.css" integrity="sha512-jrIqC8viP5m6wSz3kjxL+rDmBg0qdIgbPa8ziq33fIXnvV0eUqqUfW0R9S52i3S+G56V8eKMiTzqwNah8AujiA==" crossorigin="anonymous" />
+   <!-- End of hightlight JS code library CDN declarations-->
+</head>
+<body>
+   <div class="wrapper">
+       <nav class="topnav" id="myTopnav">
+         <ul>
+            <li><a class="navhome" href="index.html">Home</a></li>
+            <li><a  href="functions.html">Functions</a></li>
+            <li><a href="variables.html">Variables</a></li>
+            <li><a class="current" href="statements.html">Statements</a></li>
+            <li><a href="demo.html">Demo</a></li>
+            <!-- This link with class="icon" is used to open and close the topnav on small screens -->
+            <li class="invisibleBars"><a href="javascript:void(0);" class="icon" onclick="toggleBars()"><i class="fas fa-bars"></i></a></li>
+         </ul>
+      </nav> 
+      <header>
+         <h1>Statements</h1>
+      </header>
+      <main>
+         <section>
+            <h2>Statement Syntax</h2>
+            <p>In the same way there is proper syntax for a function, there is also proper syntax for a statement. In JavaScript there are several different kinds of statements and each kind has its own specific syntax. In this project we will be focusing on the use of switch statements.</p>
+            <p>According to the W3Schools, "A switch statement is a block of statements to be executed, depending on different cases." Here is the basic syntax of a switch statement.</p>
+<pre>
+<code>
+  switch (<em>expression</em>) {
+     case label:
+        <em>statements</em>;
+        break;
+     case label:
+        <em>statements</em>;
+        break;
+     case label:
+        <em>statements</em>;
+        break;
+     defaualt:
+        <em>statements</em>;
+        break;
+  }
+</code>
+</pre>
+            <p>Let's take a look at the construction of a switch statement used in conjunction with a drop down menu. Below I've built a simple drop down menu that lets the user choose from three ice cream flavors. A different message is displayed depending on which option the user chooses.</p>
+             
+               <label for="chooseFlavor" class="chooseFlavor">Select a flavor</label>
+               <br>
+               <div class="customSelect">
+                  <select name="chooseFlavor" id="chooseFlavor">
+                     <option value="lavender">Lavender</option>
+                     <option value="lemonSorbet">Lemon Sorbet</option>
+                     <option value="saltedCaramel">Salted Caramel</option>
+                  </select>
+               </div>
+               <br>
+               <div class="showMessage"><span id="showMessage"></span></div>
+    
+            <p>Let's take a look at the switch statement for this user interaction. I have put the switch statement inside a function named <em>iceCreamMessage</em>.</p>
+<pre>
+<code>
+  function iceCreamMessage() {
+     var flavorChoice = document.getElementById("chooseFlavor").value;
+     switch (<em>flavorChoice</em>) {
+        case "lavender":
+           document.getElementById("showMessage").innerHTML = 
+           "Love that lavender!";
+           break;
+        case "lemonSorbet":
+           document.getElementById("showMessage").innerHTML = 
+           "When life gives you lemons, make lemon sorbet!";
+           break;
+        case "saltedCaramel":
+           document.getElementById("showMessage").innerHTML = 
+           "Try an affogato shot with this one!";
+           break;   
+        default:
+           document.getElementById("showMessage").innerHTML = " ";
+           break;
+     }
+   }
+   
+</code>
+</pre>
+            <p>Notice that above the switch statement and inside the function curly brackets, I declared a variable <em>flavorChoice</em> that is assigned the value of the chosen selection. The web browser looks inside the HTML document inside the element with <em>id="chooseFlavor"</em> to find this value. The three possible values are <em>lavender</em>, <em>lemonSorbet</em>, and <em>saltedCaramel</em>.</p> 
+            <p>The expression <em>document.getElementById("showMessage").innerHTML</em> tells the browser to show the message that comes after this code, so for <em>case "lavender"</em>, this message is "Love that lavender!", for <em>case "lemonSorbet"</em> this message is "When life gives you lemons, make lemon sorbet!", and for <em>case "saltedCaramel"</em> this message is "Try an affogato shot with this one!"</p>
+            <p>This message will be placed on the page in the location for the div element with <em>id="showMessage"</em>.</p>     
+         </section>
+         <section>
+            <h2>Putting It Togethetr</h2>
+            <p>To make it all work, we will create a JavaScript file called <em>flavor.js</em> and save it inside a folder names <em>js</em>. At the top we'll put our function. Then we will include the following createEventListener function and the code that tells the browser to call that function when the page loads.</p>
+<pre>
+<code>
+  function createEventListeners() {
+     var chooseFlavor = document.getElementById("chooseFlavor");
+     chooseFlavor.addEventListener ("change", iceCreamMessage, false);
+  }
+  
+  window.addEventListener("load", createEventListeners, false);
+  
+</code>
+</pre>
+            <p>Next we will add a line of code to the HTML document that tells the browser to load the <em>flavor.js</em> file. This code goes just before the closing <em>body</em> tag.</p>
+<pre>
+<code>
+  &lt;script src="js/flavors.js"&gt;&lt;/script&gt;
+  
+</code>
+</pre>
+            <p>Last we must add two more code snippets. The first is a function to remove <em>lavender</em> as the default selection in our drop down menu. It's beyond the scope of this tutorial to explain this code, but for our function to work it needs to be in our <em>flavors.js</em> document.</p>
+<pre>
+<code>
+  function removeSelectionDefaults() {
+    var noDefaults = document.getElementsByTagName("select");
+    for (var i = 0; i &lt; noDefaults.length; i++) {
+      noDefaults[i].selectedIndex = -1;
+    }
+  }
+  
+</code>
+</pre>
+            <p>The second is a line of code that tells the browser to run the <em>removeSelectionDefaults()</em> function when the page loads.</p>
+<pre>
+<code>
+  window.addEventListener("load", removeSelectionDefaults, false);
+  
+</code>
+</pre>
+            <p>If you want to see this code in action, make a selection from the ice cream flavor drop down menu above.</p>
+         </section>
+         <section>
+            <h2>The Chord Calculator</h2>
+            <p>Now lets see how all this works in our chord calculator project.</p>
+               <h3>Switch Statements</h3>
+               <p>We will need two switch statements for this project. First we will need a switch statement that switches out the variable <em>scale</em> for a different array based on the value chosen by the user from the scale drop down menu. If the user selects the C scale from the drop down menu, the switch statement will assign the <em>scale</em> variable to be <em>scaleC</em>. Here is that code enclosed in the function <em>showChord</em>. Take note of the variable declaration just before the switch statement.</p>
+<pre>
+<code>
+  function showChord() {  
+     var scaleChoice = document.getElementById("chooseScale").value;
+     switch (scaleChoice) {
+        case "scaleFsharp": 
+           var scale = scaleFsharp;
+           break;
+        case "scaleB": 
+           var scale = scaleB;
+           break;
+        case "scaleE":
+           var scale = scaleE;
+           break;
+        case "scaleA":
+           var scale = scaleA;
+           break;
+        case "scaleD":
+           var scale = scaleD;
+           break;
+        case "scaleG":
+           var scale = scaleG;
+           break;
+        case "scaleC":
+           var scale = scaleC;
+           break;
+        case "scaleF":
+           var scale = scaleF;
+           break; 
+        case "scaleBb":
+           var scale = scaleBb;
+           break;
+        case "scaleEb":
+           var scale = scaleEb;
+           break;
+        case "scaleAb":
+           var scale = scaleAb;
+           break;
+        case "scaleDb":
+           var scale = scaleDb;
+           break;
+        default:
+           var scale = scaleDegrees;
+           break;
+     }
+   }
+   
+</code>
+</pre>
+               <p>The second switch statement we will need checks the selected chord scale value and applies a different output for each case, so if, for example, the user selects a minor chord, the values for the array indexes [0], [3], and [7] are outputted to the web page. If this isn't making sense, you can take a sneak peek at the demo page, and it may make more sense. I'll be right here when you get back. If you like surprises, then lets plow on.</p>
+               <p>This second switch statement is included in the same function <em>showChord</em>. There are 22 chords in the chord calculator, so this switch statement is very long. I will only show the code for four chords, but that should be enough for you to get a vision for the entire statement.</p>
+<pre>
+<code>
+  var chordChoice = document.getElementById("chooseChord").value;
+   switch (chordChoice) {
+      case "major":
+         document.getElementById("showChord").innerHTML = scale[0]  
+         + " = " + scale[0] + ", " + scale[4] + ", " + scale[7];    
+         break; 
+      case "m":
+         document.getElementById("showChord").innerHTML = scale[0] + chordChoice 
+         + " = " + scale[0] + ", " + scale[3] + ", " + scale[7];      
+         break;
+      case "dim":
+         document.getElementById("showChord").innerHTML = scale[0] + chordChoice 
+         + " = " + scale[0] + ", " + scale[3] + ", " + scale[6]; 
+         break;
+      case "+":
+         document.getElementById("showChord").innerHTML = scale[0] + chordChoice 
+         + " = " + scale[0] + ", " + scale[4] + ", " + scale[8];    
+         break;
+      default:
+         break;  
+   }
+   
+</code>
+</pre>            
+               <h3>Event Handlers</h3>
+               <p>As in the ice cream flavor example, we will need to set up event handlers to listen for the user selections from the <em>chooseScale</em> and <em>chooseChord</em> drop down menus. Here is that code.</p>
+<pre>
+<code>
+  function createEventListeners() {
+     // creates an event listener for the drop down menu to select a scale
+     var chooseScale = document.getElementById("chooseScale");
+     chooseScale.addEventListener ("change", showChord, false);
+     // creates an event listener for the drop down menu to select a chord
+     var chooseChord = document.getElementById("chooseChord");
+     chooseChord.addEventListener ("change", showChord, false); 
+  }
+
+  window.addEventListener("load", setUpPage, false);
+
+</code>
+</pre>
+               <h3>HTML &lt;script&gt;</h3>
+               <p>Last, we need to add the <em>script</em> element into the HTML document to tell the browser to load the <em>demo.js</em> file saved inside a folder names <em>js</em> when the page loads.</p>
+<pre>
+<code>
+  &lt;script src="js/demo.js"&gt;&lt;/script&gt;
+  
+</code>
+</pre>
+               <h3>removeDefaults</h3>
+               <p>Oh, and I almost forgot, in order for it all to work we need the snippet of code that removes the default selection in our drop down menus. It's exactly the same as for the ice cream flavor example, but I will display it again here for clarity.</p>
+<pre>
+<code>
+  function removeSelectionDefaults() {
+    var noDefaults = document.getElementsByTagName("select");
+    for (var i = 0; i &lt; noDefaults.length; i++) {
+      noDefaults[i].selectedIndex = -1;
+    }
+  }
+  
+</code>
+</pre> 
+         </section>
+         <section>
+            <h2>Journey's End</h2>
+            <p>We've come to the end of this tutorial! There may be bits and pieces you still don't understand, but hopefully you get the general idea of how switch statements work within a JavaScript function. Click the "next" button to see this application in action on the demo page.</p>
+            <p>To get a closer look at the full HTML, CSS and JavaScript files, here's the <a class="codepen" href="https://codepen.io/sherrisa/pen/XWNEBbG">codepen link</a> for this project.</p>
+            <p>Thanks for visiting!</p>
+         </section>
+         <footer>
+            <button class="backButton" onclick="document.location='variables.html'"><i class="fas fa-angle-left"></i> Back</button>
+            <button class="nextButton" onclick="document.location='demo.html'">Next <i class="fas fa-angle-right"></i></button>
+         </footer>
+      </main>
+   </div>
+   <script>hljs.highlightAll();</script>
+   <script src="js/js_tutorial.js"></script>
+   <script src="js/flavors.js"></script>
+</body>
+</html>
